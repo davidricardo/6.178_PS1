@@ -11,8 +11,8 @@ public class Card {
     /* Checkoff TAs: be sure to ask students if the order of these constants matters.
      * For Suit it doesn't matter, but for Value it might (see below).
      */
-    enum Suit{
-        HEARTS, DIAMONDS, CLUBS, SPADES
+    enum Suit {
+        SPADES, DIAMONDS, CLUBS, HEARTS
     }
     
     /* Graders: note that if a student uses ordinal() in their implementation of
@@ -92,6 +92,32 @@ public class Card {
         return this.getNumber() - otherCard.getNumber();
     }
     
+    /**
+     * Express this Card as a String.
+     * @return a string consisting of the value of this card if it is a
+     *      numbered card or A, J, Q, or K for ace, jack, queen, or king
+     *      respectively followed by a lowercase s, d, c, or h if the suit
+     *      is spades, diamonds, clubs or hearts respectively.
+     *      For example, the ace of spades is "As", two of clubs is "2c",
+     *      jack of hearts is "Jh", and the 10 of diamonds is "10d".
+     */
+    @Override 
+    public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        /* Graders: I expect most students to use a switch-case statement here.
+         * They shouldn't lose points for that, though they should lose points
+         * if they write a big chain of if and else statements. */
+        if (value == Value.ACE || value == Value.JACK ||
+                value == Value.QUEEN || value == Value.KING) {
+            stringBuilder.append(value.toString().charAt(0));
+        } else {
+            stringBuilder.append(value.ordinal());
+        }
+        
+        stringBuilder.append(Character.toLowerCase(suit.toString().charAt(0)));
+            
+        return stringBuilder.toString();
+    }
     
     /* Students: don't worry about the two functions below.
      * They are provided by staff and necessary so that collections of cards,
