@@ -16,7 +16,8 @@ public class Deck {
     /*
      * Graders: there are many possible implementations of Deck, including 
      * an array, a list, or a queue. This implementation uses a List<Card>
-     * because I think that's what most students will use.
+     * because I think that's what most students will use. Students should
+     * not lose points for choosing a different implementation.
      */
     
     private List<Card> cards;
@@ -136,8 +137,4 @@ public class Deck {
     Value findHighestPair(){
         throw new UnsupportedOperationException();
     }
-    
-    
-    
-
 }
