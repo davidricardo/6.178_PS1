@@ -3,29 +3,22 @@ package cards;
 import java.util.Objects;
 
 /**
- * Represents a card from a standard deck of cards.
- * This class is immutable.
+ * Represents a card from a standard deck of cards. Immutable.
+ * Cards have values, which are the numbers from 2 to 10 (inclusive)
+ * and ace, jack, queen, and king. Cards have a number, which can be used
+ * instead of the value. For 2 through 10, the number is the same as the value.
+ * The number of a jack is 11, queen is 12, king is 13, and ace is 1.
+ * Card numbers will be used in future p-sets.
  */
 public class Card {
 
-    /* Checkoff TAs: be sure to ask students if the order of these constants matters.
-     * For Suit it doesn't matter, but for Value it might (see below).
-     */
     enum Suit {
         SPADES, DIAMONDS, CLUBS, HEARTS
     }
     
-    /* Graders: note that if a student uses ordinal() in their implementation of
-     * getNumber or values() in the int constructor, as this implementation does,
-     * they must have declared the constants in Value in this order.
-     */
     enum Value{
-        ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN,
-        EIGHT, NINE, TEN, JACK, QUEEN, KING
+        // Fill in this enumeration with the thirteen card values.
     }
-    
-    private final Suit suit;
-    private final Value value;
     
     /**
      * Create a new Card.
@@ -33,8 +26,7 @@ public class Card {
      * @param suit the suit of the new card
      */
     public Card(Value value, Suit suit){
-        this.value = value;
-        this.suit = suit;
+        throw new UnsupportedOperationException(); // Your code here
     }
    
     /**
@@ -44,40 +36,24 @@ public class Card {
      * @param suit the suit of the new card
      */
     public Card(int number, Suit suit){
-        if (number < 1 || number > 13){
-            throw new IllegalArgumentException("Called Card(int, Suit)"
-                    + " constructor with an illegal number.");
-        }
-        this.value = Value.values()[number - 1];
-        this.suit = suit;
+        throw new UnsupportedOperationException(); // Your code here
     }
     
-    /**
-     * @return the suit of this Card.
-     */
+    /** @return the suit of this Card. */
     public Suit getSuit(){
-        return suit;
+        throw new UnsupportedOperationException(); // Your code here
     }
     
-    /**
-     * @return the value of this Card.
-     */
+    /** @return the value of this Card. */
     public Value getValue(){
-        return value;
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /**
-     * @return the number of this Card, from 1 to 13.
+     * @return the number of this Card, from 1 (ace) to 13 (king).
      */
     public int getNumber(){
-        // 1+ because ordinals start at 0 but the number of an ace is 1.
-        return 1 + this.value.ordinal();
-        
-        /* An alternate solution declares each enum constant in Value
-         * with an number from 1 to 13, then gets the number from this.value.
-         * That solution is clunkier because ordinal() is available, but they
-         * shouldn't lose points for doing it that way. 
-         */
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /**
@@ -89,7 +65,7 @@ public class Card {
      * @param otherCard card to compare to.
      */
     public int valueDifference(Card otherCard){
-        return this.getNumber() - otherCard.getNumber();
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /**
@@ -103,20 +79,7 @@ public class Card {
      */
     @Override 
     public String toString(){
-        StringBuilder stringBuilder = new StringBuilder();
-        /* Graders: I expect most students to use a switch-case statement here.
-         * They shouldn't lose points for that, though they should lose points
-         * if they write a big chain of if and else statements. */
-        if (value == Value.ACE || value == Value.JACK ||
-                value == Value.QUEEN || value == Value.KING) {
-            stringBuilder.append(value.toString().charAt(0));
-        } else {
-            stringBuilder.append(value.ordinal());
-        }
-        
-        stringBuilder.append(Character.toLowerCase(suit.toString().charAt(0)));
-            
-        return stringBuilder.toString();
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /* Students: don't worry about the two functions below.
@@ -138,7 +101,7 @@ public class Card {
     
     @Override
     public int hashCode(){
-        return Objects.hash(suit, value);
+        return 0;
     }
     
 }
