@@ -1,22 +1,30 @@
 package cards;
 
+import java.util.Objects;
+
 /**
  * Represents a card from a standard deck of cards.
+ * This class is immutable.
  */
 public class Card {
 
+    /* Checkoff TAs: be sure to ask students if the order of these constants matters.
+     * For Suit it doesn't matter, but for Value it might (see below).
+     */
+    enum Suit{
+        HEARTS, DIAMONDS, CLUBS, SPADES
+    }
+    
+    /* Graders: note that if a student uses ordinal() in their implementation of
+     * getNumber or values() in the int constructor, as this implementation does,
+     * they must have declared the constants in Value in this order.
+     */
     enum Value{
         ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN,
         EIGHT, NINE, TEN, JACK, QUEEN, KING
     }
     
-    
-    enum Suit{
-        HEARTS, DIAMONDS, CLUBS, SPADES
-    }
-    
     private final Suit suit;
-    
     private final Value value;
     
     /**
@@ -62,8 +70,14 @@ public class Card {
      * @return the number of this Card, from 1 to 13.
      */
     public int getNumber(){
-        // 1+ because ordinals start at 0 but ace is 1.
+        // 1+ because ordinals start at 0 but the number of an ace is 1.
         return 1 + this.value.ordinal();
+        
+        /* An alternate solution declares each enum constant in Value
+         * with an number from 1 to 13, then gets the number from this.value.
+         * That solution is clunkier because ordinal() is available, but they
+         * shouldn't lose points for doing it that way. 
+         */
     }
     
     /**
@@ -76,6 +90,29 @@ public class Card {
      */
     public int valueDifference(Card otherCard){
         return this.getNumber() - otherCard.getNumber();
-    } 
+    }
+    
+    
+    /* Students: don't worry about the two functions below.
+     * They are provided by staff and necessary so that collections of cards,
+     * like Set<Card> or Map<Card, whatever> work correctly.
+     * The purpose and implementation of these functions is beyond the scope
+     * of 6.178 and is covered in 6.005.
+     */
+    @Override
+    public boolean equals(Object other){
+        if (other instanceof Card){
+            Card otherCard = (Card) other;
+            return otherCard.getSuit() == this.getSuit() &&
+                    otherCard.getValue() == this.getValue();
+        } else {
+            return false;
+        }
+    }
+    
+    @Override
+    public int hashCode(){
+        return Objects.hash(suit, value);
+    }
     
 }
