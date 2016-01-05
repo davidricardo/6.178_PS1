@@ -11,7 +11,9 @@ public class CardTest {
 
     /* Testing strategy
      * Value constructor:
-     *      
+     *      test each value
+     *      test each suit
+     *  
      * 
      */
 }

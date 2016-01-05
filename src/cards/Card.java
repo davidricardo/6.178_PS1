@@ -1,7 +1,5 @@
 package cards;
 
-import java.util.Objects;
-
 /**
  * Represents a card from a standard deck of cards. Immutable.
  * Cards have values, which are the numbers from 2 to 10 (inclusive)
@@ -72,7 +70,7 @@ public class Card {
      * Express this Card as a String.
      * @return a string consisting of the value of this card if it is a
      *      numbered card or A, J, Q, or K for ace, jack, queen, or king
-     *      respectively followed by a lowercase s, d, c, or h if the suit
+     *      respectively, followed by a lowercase s, d, c, or h if the suit
      *      is spades, diamonds, clubs or hearts respectively.
      *      For example, the ace of spades is "As", two of clubs is "2c",
      *      jack of hearts is "Jh", and the 10 of diamonds is "10d".

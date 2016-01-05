@@ -12,6 +12,7 @@ public class DeckTest {
      * list constructor:
      *      size of list = 0, 1, n 
      *      Test that order is preserved
+     *      Test with consecutive, non-consecutive duplicate cards
      * draw:
      *      
      */

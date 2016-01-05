@@ -1,11 +1,15 @@
 package cards;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import cards.Card.Suit;
-import cards.Card.Value;
+import cards.CardSolution.Suit;
+import cards.CardSolution.Value;
 
 /**
  * Represents an ordered deck of cards that can be drawn from and added to.
@@ -13,23 +17,16 @@ import cards.Card.Value;
  */
 public class Deck {
     
-    /*
-     * Graders: there are many possible implementations of Deck, including 
-     * an array, a list, or a queue. This implementation uses a List<Card>
-     * because I think that's what most students will use. Students should
-     * not lose points for choosing a different implementation.
-     */
-    
-    private List<Card> cards;
     
     /**
      * Create a new Deck with 52 standard cards.
      * The cards must be in the following new deck order: ace, the numbered
      * cards in ascending order, jack, queen, and king for each of the four
-     * suits in the order: spades,  diamonds, clubs, hearts.
+     * suits in the order: spades,  diamonds, clubs, hearts. The ace of spades
+     * is at the top of the deck, and is the first card drawn.
      */
     public Deck(){
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /**
@@ -37,21 +34,16 @@ public class Deck {
      * @param cards the cards to put in the deck. The first card in the list
      *     becomes the top card of the deck.
      */
-    public Deck(List<Card> cards){
-        throw new UnsupportedOperationException();
+    public Deck(List<CardSolution> cards){
+        throw new UnsupportedOperationException(); // Your code here
     }
     
-    /* Graders: note that the behavior of this function when called on an empty
-     * deck is unspecified.
-     * Checkoff TAs: Ask students about what their implementation does when
-     * called on an empty deck, and ask them why they chose that behavior.
-     */
     /**
      * Draw the top card of the deck and remove it.
      * @return the top card.
      */
-    public Card draw(){
-        throw new UnsupportedOperationException();
+    public CardSolution draw(){
+        throw new UnsupportedOperationException(); // Your code here
     }
 
     // Testers: what is a better name for this function?
@@ -59,8 +51,8 @@ public class Deck {
      * Modify this deck by putting another deck on top of it.
      * @param otherDeck what to put on top.
      */
-    public void putOnTop(){
-        throw new UnsupportedOperationException();
+    public void putOnTop(Deck otherDeck){
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /**
@@ -69,26 +61,28 @@ public class Deck {
      * and shuffling them both must (usually) result in different orders.
      */
     public void shuffle(){
-        throw new UnsupportedOperationException();
-        /* Collections.shuffle
-         * Random.random
-         * implement themselves
-         */
+        throw new UnsupportedOperationException(); // Your code here
     }
     
-    /* Checkoff TAs: ask students what their implementation does when multiple
-     * cards match the suit and value, or when none do. Ask them why they chose
-     * that behavior.
+    /**
+     * Convert this Deck into a string.
+     * @return the "[" character, the string representations of all cards in
+     *      the deck from top to bottom, and then the "]" character.
      */
+    @Override
+    public String toString(){
+        throw new UnsupportedOperationException(); // Your code here
+    }
+    
     /**
      * Get the position of a card with specified suit and value.
-     * @param suit the suit to search for
-     * @param value the value to search for 
+     * @param targetSuit the suit to search for
+     * @param targetValue the value to search for 
      * @return how far a card with suit suit and value value is from the top of
      *      the deck. For example, returns 0 when only the top card matches.
      */
-    public int search(Suit suit, Value value){
-        throw new UnsupportedOperationException();
+    public int search(Suit targetSuit, Value targetValue){
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /**
@@ -96,28 +90,31 @@ public class Deck {
      * @return a map where each key is an integer from 0 to the number of cards
      *      in the deck - 1.  
      */
-    public Map<Integer, Card> getPositions(){
-        throw new UnsupportedOperationException();
+    public Map<Integer, CardSolution> getPositions(){
+        throw new UnsupportedOperationException(); // Your code here
     }
+
+    
+    /* Testers: what should we do with this comment and the functions below it? 
+     * I included this comment to explain why the following functions were 
+     * package-private instead of public. I worried that the p-set would be too
+     * easy and too boring without more challenging exercises. Also, these
+     * functions are the only places where the students use Map and Set.
+     */
+    /* The above functions are important to the functionality of Deck, and will
+     * be used in future p-sets. The following functions are exercises to test
+     * your understanding.
+     */
     
     /**
      * Draw until a card of the specified suit is drawn.
      * Always draws at least one card (unless the deck is empty).
-     * @param suit the suit to stop drawing on.
+     * @param targetSuit the suit to stop drawing on.
      * @return a list of drawn cards. the first in the list is the first card
      *      drawn. The last card in the list is the only one whose suit is suit.
      */
-    List<Card> drawUntil(Suit suit){
-        throw new UnsupportedOperationException();
-    }
-    
-    /**
-     * Count how many cards have a certain value.
-     * @param value the value to search for
-     * @return the number of Cards in this Deck whose value is value.
-     */
-    int countCardsWithValue(Value value){
-        throw new UnsupportedOperationException();
+    List<CardSolution> drawUntil(Suit targetSuit){
+        throw new UnsupportedOperationException(); // Your code here
     }
     
     /**
@@ -127,14 +124,15 @@ public class Deck {
      *      If two values are tied, the set includes both of those and no others.
      */
     Set<Value> mostCommonValues(){
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(); // Your code here
     }
     
+    // Is this spec clear enough?
     /**
-     * @return the highest value that has exactly two cards in the deck, or
-     *      null if no value has exactly two cards in the deck. 
+     * @return the highest value that has exactly two cards in this deck, or
+     *      null if there is no such value.
      */
     Value findHighestPair(){
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(); // Your code here
     }
 }

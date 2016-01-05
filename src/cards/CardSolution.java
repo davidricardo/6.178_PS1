@@ -1,8 +1,12 @@
 package cards;
 
 /**
- * Represents a card from a standard deck of cards.
- * This class is immutable.
+ * Represents a card from a standard deck of cards. Immutable.
+ * Cards have values, which are the numbers from 2 to 10 (inclusive)
+ * and ace, jack, queen, and king. Cards have a number, which can be used
+ * instead of the value. For 2 through 10, the number is the same as the value.
+ * The number of a jack is 11, queen is 12, king is 13, and ace is 1.
+ * Card numbers will be used in future p-sets.
  */
 public class CardSolution {
 
